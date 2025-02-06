@@ -1,0 +1,10 @@
+﻿{
+  "chrome": {
+    "browserName": "chrome",
+    "platformName": "desktop"
+  },
+  "firefox": {
+    "browserName": "firefox",
+    "platformName": "desktop"
+  }
+}
