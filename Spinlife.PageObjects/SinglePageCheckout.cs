@@ -46,6 +46,7 @@ namespace Spinlife.PageObjects
 
         public bool IsProductAddedToCart()
         {
+            Thread.Sleep(2000);
             Extensions.WaitForVisible(buttonNoThanks, 5000);
             buttonNoThanks.Click();
             Extensions.WaitForVisible(buttonViewCart, 5000);
