@@ -3,7 +3,7 @@ using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace AlerStellings.Utility
+namespace Spinlife.Utility
 {
     public static class Extensions
     {

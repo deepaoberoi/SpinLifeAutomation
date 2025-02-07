@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace AlerStallings.Support
+namespace Spinlife.Support
 {
     class JsHelper
     {

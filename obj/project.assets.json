@@ -11586,11 +11586,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+      "projectUniqueName": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj",
       "projectName": "SpinlifeTest",
-      "projectPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+      "projectPath": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj",
       "packagesPath": "C:\\Users\\deepa.oberoi\\.nuget\\packages\\",
-      "outputPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\obj\\",
+      "outputPath": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\deepa.oberoi\\AppData\\Roaming\\NuGet\\NuGet.Config"

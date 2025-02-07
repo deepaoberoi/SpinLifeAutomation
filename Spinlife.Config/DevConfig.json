@@ -32,32 +32,8 @@
           "value": "Centric@123"
         },
         {
-          "key": "TenantUsername",
-          "value": "automation.tenant@alerstallingscrm.onmicrosoft.com"
-        },
-        {
-          "key": "TenantPassword",
-          "value": "Centric@123"
-        },
-        {
-          "key": "SlimTenantUsername",
-          "value": "automation.slimtenant@alerstallingscrm.onmicrosoft.com"
-        },
-        {
-          "key": "SlimTenantPassword",
-          "value": "Centric@123"
-        },
-        {
-          "key": "AllerStallingsTenantUsername",
-          "value": "automation.astenant@alerstallingscrm.onmicrosoft.com"
-        },
-        {
-          "key": "AllerStallingsTenantPassword",
-          "value": "Centric@123"
-        },
-        {
-          "key": "AffiliatedOffice",
-          "value": "/api/AffiliatedOffice"
+          "key": "",
+          "value": ""
         }
       ]
     }

@@ -1,17 +1,17 @@
-﻿using AlerStallings.Config;
+﻿using Spinlife.Config;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace AlerStallings.Support
+namespace Spinlife.Support
 {
     class JsonHelper
     {
         public static string GetDataByEnvironment(string parameter)
         {
-            string environmentData = ReadJsonFile(@"AlerStallings.Config\EnvironmentConfig.json");
+            string environmentData = ReadJsonFile(@"Spinlife.Config\EnvironmentConfig.json");
             var inputJsonObject = JsonConvert.DeserializeObject<EnvironmentConfig>(environmentData);
 
             var envConfig = inputJsonObject.GetDataByEnvironment.FirstOrDefault(x => x.environment.ToLower() == TestConfig.getEnvironment().ToLower());

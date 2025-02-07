@@ -48,7 +48,6 @@
 		<Folder Include="Spinlife.Resources\" />
 	</ItemGroup>
 
-
 	<ItemGroup>
 		<None Update="Spinlife.Config\LocalConfig.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

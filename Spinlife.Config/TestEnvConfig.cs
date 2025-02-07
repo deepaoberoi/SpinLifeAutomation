@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Extensions.Configuration;
 
-namespace AlerStallings.Config{
+namespace Spinlife.Config{
      public class TestConfig
      {
         public static string getEnvironment()

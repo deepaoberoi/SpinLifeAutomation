@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System;
 
-namespace AlerStallings.PageObjects
+namespace Spinlife.PageObjects
 {
     public abstract class PageObject
     {

@@ -35,7 +35,8 @@ namespace SpinlifeTest.Spinlife_Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Spinlife.Features", "Spinlife", "\t\tAs a User,\r\n\t\tI want to purchase a product without logging in", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Spinlife.Features", "Spinlife", "\t\tAs a User,\r\n\t\tI want to purchase a product using my credit card without logging" +
+                    " in", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -115,6 +116,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 10
  testRunner.Then("I should see the product details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+ testRunner.When("I click on Add to Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+ testRunner.Then("I should see mandatory validation for SpinLife Classic PR-458 3-Position", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
  testRunner.When("I fill mandatory details for SpinLife Classic PR-458 3-Position", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

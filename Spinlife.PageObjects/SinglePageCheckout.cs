@@ -1,10 +1,11 @@
 using System;
-using AlerStellings.Utility;
-using OpenQA.Selenium;
 using System.Threading;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using Spinlife.Config;
+using Spinlife.Utility;
 
-namespace AlerStallings.PageObjects
+namespace Spinlife.PageObjects
 {
     public class SinglePageCheckout : PageObject
     {
@@ -12,10 +13,6 @@ namespace AlerStallings.PageObjects
         public SinglePageCheckout(IWebDriver driver) : base(driver)
         {
             _driver = driver;
-        }
-        public Boolean IsHomePageDisplayed()
-        {
-            return _driver.Title.Contains("SpinLife");
         }
         public void SearchForProduct(string product)
         {
@@ -48,6 +45,7 @@ namespace AlerStallings.PageObjects
 
         public bool IsProductAddedToCart()
         {
+            Extensions.WaitForVisible(buttonNoThanks, 5000);
             buttonNoThanks.Click();
             Extensions.WaitForVisible(buttonViewCart, 5000);
             return buttonViewCart.Displayed;
@@ -55,8 +53,9 @@ namespace AlerStallings.PageObjects
 
         public void ClickOnViewCart()
         {
-            Thread.Sleep(5000);
-            Extensions.WaitForVisible(buttonViewCart, 5000);
+            Thread.Sleep(2000);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", buttonViewCart);
+            Extensions.WaitForVisible(buttonViewCart, 10000);
             buttonViewCart.Click();
         }
 
@@ -85,19 +84,20 @@ namespace AlerStallings.PageObjects
             rdButtonCC.Click();
 
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-number")));
-            textBoxCreditCardNo.SendKeys("4111111111111111");
+            string CreditCardNo = SpinlifeStagingConfig.CreditCardNo;
+            textBoxCreditCardNo.SendKeys(CreditCardNo);
             _driver.SwitchTo().DefaultContent();
 
-             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationMonth")));
-            dropDownExpiryMonth.SendKeys("12");
+            _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationMonth")));
+            dropDownExpiryMonth.SendKeys(DateTime.Now.AddMonths(1).ToString("MM"));
             _driver.SwitchTo().DefaultContent();
 
-             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationYear")));
-            dropDownExpiryYear.SendKeys("2028");
+            _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationYear")));
+            dropDownExpiryYear.SendKeys(DateTime.Now.AddYears(1).ToString("yyyy"));
             _driver.SwitchTo().DefaultContent();
 
-             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-cvv")));
-            textBoxCVV.SendKeys("123");
+            _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-cvv")));
+            textBoxCVV.SendKeys(new Random().Next(100, 999).ToString());
             _driver.SwitchTo().DefaultContent();
 
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
@@ -111,20 +111,19 @@ namespace AlerStallings.PageObjects
         public void ClickOnPlaceOrder()
         {
             btnPlaceOrder.Click();
-            Thread.Sleep(5000);
+            Extensions.WaitForVisible(labelOrderConfirmation, 10000);
         }
 
         public bool IsOrderConfirmationDisplayed()
         {
             Extensions.WaitForVisible(labelOrderConfirmation, 10000);
-            Thread.Sleep(5000);
             return labelOrderConfirmation.Displayed;
         }
 
         public void BetteLogin()
         {
-            textboxBetteEmail.SendKeys("deepa.oberoi@numotion.com");
-            textboxBettePassword.SendKeys("1990@Diya");
+            textboxBetteEmail.SendKeys(SpinlifeStagingConfig.BetteUserName);
+            textboxBettePassword.SendKeys(SpinlifeStagingConfig.BettePassword);
             btnBetteLogin.Click();
         }
 
@@ -161,8 +160,6 @@ namespace AlerStallings.PageObjects
         private IWebElement textboxBetteEmail => _driver.FindElement(By.XPath("//*[@id='Username']"));
         private IWebElement textboxBettePassword => _driver.FindElement(By.XPath("//*[@id='Password']"));
         private IWebElement btnBetteLogin => _driver.FindElement(By.XPath("//*[@id='loginButton']"));
-
-
 
     }
 }

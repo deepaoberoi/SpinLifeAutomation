@@ -4,9 +4,9 @@ using System.IO;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Support.Extensions;
-using AlerStallings.Factories;
+using Spinlife.Factories;
 
-namespace AlerStallings.Support
+namespace Spinlife.Support
 {
 	[Binding]
 	public class Hooks
@@ -32,7 +32,6 @@ namespace AlerStallings.Support
 		{
 			_driver = _driverFactory.CreateDriver();
 			_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-			//_driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
 			_driver.Manage().Window.Maximize();
 			_objectContainer.RegisterInstanceAs(_driver);
 		}

@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
-namespace AlerStallings.Factories
+namespace Spinlife.Factories
 {
     public class DriverFactory
     {

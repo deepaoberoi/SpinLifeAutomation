@@ -1,7 +1,7 @@
 ﻿
-using AlerStallings.Support;
+using Spinlife.Support;
 
-namespace AlerStallings.Utility
+namespace Spinlife.Utility
 {
     public class UserAuthenticationSettings
     {

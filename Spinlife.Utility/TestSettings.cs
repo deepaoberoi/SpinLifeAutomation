@@ -1,5 +1,5 @@
 ﻿
-namespace AlerStallings.Utility
+namespace Spinlife.Utility
 {
     public class TestSettings
     {

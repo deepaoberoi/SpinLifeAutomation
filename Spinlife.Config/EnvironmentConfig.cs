@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AlerStallings.Config
+namespace Spinlife.Config
 {
     public class EnvironmentData
     {

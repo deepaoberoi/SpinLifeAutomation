@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DXYcWS2b17NfCZh6bstd78OM2iFybL8Aq1ifCfFfcMyvIo5K0dekxW0H0S74sjbW+I3POfvY27KQNdnH/Tt2hA==",
+  "dgSpecHash": "szfIcWyOJFroMQZBd8iqtFOaNaJutSk2Ca7BKKZH3BKFvrsTeo9iJL1ywraOLOApYF75ZZ9SUAa2vQ4ARFDJVA==",
   "success": true,
-  "projectFilePath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+  "projectFilePath": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\deepa.oberoi\\.nuget\\packages\\asciidocnet\\1.0.0-alpha6\\asciidocnet.1.0.0-alpha6.nupkg.sha512",
     "C:\\Users\\deepa.oberoi\\.nuget\\packages\\bitmiracle.docotic.pdf\\9.2.16470\\bitmiracle.docotic.pdf.9.2.16470.nupkg.sha512",

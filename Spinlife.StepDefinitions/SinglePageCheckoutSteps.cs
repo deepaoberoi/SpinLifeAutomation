@@ -1,11 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-using System.Threading;
-using AlerStallings.PageObjects;
+﻿using Spinlife.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
+using Spinlife.Config;
 
-namespace AlerStallings.StepDefinitions
+namespace Spinlife.StepDefinitions
 {
 	[Binding]
 	public class SinglePageCheckoutSteps
@@ -19,20 +18,12 @@ namespace AlerStallings.StepDefinitions
 		[Given(@"I am on Spinlife Staging Home Page")]
 		public void WhenIAmOnSpinlifeStagingHomePage()
 		{
-			string username = "webqa";
-			string password = "Rev0luti0ns";
-			string managemycookieurl = $"https://{username}:{password}@staging.spinlife.biz/managemycookies.cfm?gfs=1&action=set&cookie_id=51&new_value=on";
-			
-			string url = $"https://{username}:{password}@staging.spinlife.biz";
+			//Navigate to Bette Url and Login
+			_page.Navigate(SpinlifeStagingConfig.BetteUrl);
+			_page.BetteLogin();
 
-			// Navigate to the URL
-			_page.Navigate(managemycookieurl);
-	
-_page.BetteLogin();
-_page.Navigate(managemycookieurl);
-//_page.Navigate(url);
-			//Assert HomePage is displayed
-			//Assert.True(_page.IsHomePageDisplayed());
+			//Set SiglePageCheckoutCookie to On
+			_page.Navigate(SpinlifeStagingConfig.managemycookieurl);
 
 		}
 
@@ -73,7 +64,7 @@ _page.Navigate(managemycookieurl);
 		}
 
 		[Then(@"I should see the product added to cart")]
-         public void ThenIShouldSeeTheProductAddedToCart()
+		public void ThenIShouldSeeTheProductAddedToCart()
 		{
 			Assert.True(_page.IsProductAddedToCart());
 		}
@@ -90,25 +81,20 @@ _page.Navigate(managemycookieurl);
 			_page.ClickOnProceedToCheckout();
 		}
 
-		[When (@"I fill the shipping details")]
+		[When(@"I fill the shipping details")]
 		public void WhenIFillTheShippingDetails()
 		{
 			_page.FillShippingDetails();
 		}
 
-		[When (@"I fill Credit Card details")]
+		[When(@"I fill Credit Card details")]
 
 		public void WhenIFillCreditCardDetails()
 		{
 			_page.FillCreditCardDetails();
 		}
 
-		// public void WhenIFillCreditCardDetails()
-		// {
-		//  	_page.SelectMailaCheckOrMoneyOrder();
-		// } 
-		
-		[When (@"I click on Place Order")]
+		[When(@"I click on Place Order")]
 		public void WhenIClickOnPlaceOrder()
 		{
 			_page.ClickOnPlaceOrder();

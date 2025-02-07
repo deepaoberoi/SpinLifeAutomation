@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AlerStallings.Utility
+namespace Spinlife.Utility
 {
     class TokenResponse
     {
