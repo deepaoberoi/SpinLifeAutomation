@@ -37,6 +37,7 @@ namespace Spinlife.PageObjects
         }
         public void SelectUpholstery()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", dropDownUpholstery);
             Extensions.WaitForVisible(dropDownUpholstery, 5000);
             dropDownUpholstery.Click();
             Extensions.WaitForVisible(dropDownUpholsteryValue, 5000);
