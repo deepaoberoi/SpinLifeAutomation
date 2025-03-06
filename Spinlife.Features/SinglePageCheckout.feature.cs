@@ -78,12 +78,23 @@ namespace SpinlifeTest.Spinlife_Features
         [NUnit.Framework.DescriptionAttribute("Single Page Checkout")]
         [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.CategoryAttribute("deepa")]
-        public virtual void SinglePageCheckout()
+        [NUnit.Framework.TestCaseAttribute("PayPal", null)]
+        [NUnit.Framework.TestCaseAttribute("CreditCard", null)]
+        [NUnit.Framework.TestCaseAttribute("WireTransfer", null)]
+        [NUnit.Framework.TestCaseAttribute("Check", null)]
+        [NUnit.Framework.TestCaseAttribute("BreadPay", null)]
+        public virtual void SinglePageCheckout(string paymentOption, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "uiTest",
                     "deepa"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("PaymentOption", paymentOption);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Single Page Checkout", null, tagsOfScenario, argumentsOfScenario);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -117,12 +128,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.Then("I should see the product details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 11
- testRunner.When("I click on Add to Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 12
- testRunner.Then("I should see mandatory validation for SpinLife Classic PR-458 3-Position", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 13
  testRunner.When("I fill mandatory details for SpinLife Classic PR-458 3-Position", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -142,10 +147,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I fill the shipping details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
- testRunner.And("I fill Credit Card details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I fill in \"{0}\" details", paymentOption), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
- testRunner.And("I click on Place Order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I click on Place Order for \"{0}\"", paymentOption), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
  testRunner.Then("I should see the order confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -1,12 +1,15 @@
-﻿using Spinlife.PageObjects;
+﻿using System;
+using System.Diagnostics;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
 using Spinlife.Config;
+using Spinlife.PageObjects;
+using TechTalk.SpecFlow;
 
 namespace Spinlife.StepDefinitions
 {
 	[Binding]
+	[DebuggerStepThrough]
 	public class SinglePageCheckoutSteps
 	{
 		private readonly SinglePageCheckout _page;
@@ -19,11 +22,13 @@ namespace Spinlife.StepDefinitions
 		public void WhenIAmOnSpinlifeStagingHomePage()
 		{
 			//Navigate to Bette Url and Login
-			_page.Navigate(SpinlifeStagingConfig.BetteUrl);
-			_page.BetteLogin();
+			//_page.Navigate(SpinlifeStagingConfig.BetteUrl);
+			//_page.BetteLogin();
 
 			//Set SiglePageCheckoutCookie to On
-			_page.Navigate(SpinlifeStagingConfig.managemycookieurl);
+			//_page.Navigate(SpinlifeStagingConfig.managemycookieurl);
+			_page.Navigate(SpinlifeStagingConfig.stagingurl);
+
 
 		}
 
@@ -87,17 +92,42 @@ namespace Spinlife.StepDefinitions
 			_page.FillShippingDetails();
 		}
 
-		[When(@"I fill Credit Card details")]
+		// [When(@"I fill Credit Card details")]
 
-		public void WhenIFillCreditCardDetails()
+		// public void WhenIFillCreditCardDetails()
+		// {
+		// 	_page.FillCreditCardDetails();
+		// }
+
+		[When(@"I fill in ""(.*)"" details")]
+		public void WhenIFillPaymentDetails(string paymentOption)
 		{
-			_page.FillCreditCardDetails();
+			if (paymentOption.Equals("Credit Card", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.FillCreditCardDetails();
+			}
+			else if (paymentOption.Equals("Paypal", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.FillPaypalDetails();
+			}
+			else if (paymentOption.Equals("BreadPay", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.FillBreadPayDetails();
+			}
+			else
+			{
+				throw new NotImplementedException($"Payment option '{paymentOption}' is not implemented.");
+			}
 		}
 
-		[When(@"I click on Place Order")]
-		public void WhenIClickOnPlaceOrder()
+
+		[When(@"I click on Place Order for ""(.*)""")]
+		public void WhenIClickOnPlaceOrder(string paymentOption)
 		{
-			_page.ClickOnPlaceOrder();
+			if (paymentOption.Equals("Credit Card", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.ClickOnPlaceOrder();
+			}
 		}
 
 		[Then(@"I should see the order confirmation")]

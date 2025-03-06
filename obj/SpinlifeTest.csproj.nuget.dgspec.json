@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj": {}
+    "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {}
   },
   "projects": {
-    "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj": {
+    "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj",
+        "projectUniqueName": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
         "projectName": "SpinlifeTest",
-        "projectPath": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\SpinlifeTest.csproj",
+        "projectPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
         "packagesPath": "C:\\Users\\deepa.oberoi\\.nuget\\packages\\",
-        "outputPath": "C:\\wip\\NewSpinlifeTest\\spinlifetest\\obj\\",
+        "outputPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\deepa.oberoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,10 @@
             "BitMiracle.Docotic.Pdf": {
               "target": "Package",
               "version": "[9.2.16470, )"
+            },
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.6.2, )"
             },
             "CsvHelper": {
               "target": "Package",
@@ -80,7 +84,7 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.5.0, )"
+              "version": "[17.13.0, )"
             },
             "Microsoft.Net.Compilers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -100,7 +104,7 @@
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[3.16.1, )"
+              "version": "[5.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
