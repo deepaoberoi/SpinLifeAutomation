@@ -46,17 +46,3 @@ Examples:
      |   Drive Medical Viper Plus GT            | 2        | $812.00     | Paypal        |
     # |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | BreadPay      |
      |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | Paypal        |
-
-        |   Drive Medical Ultra Light Full-Electric Bed          | 1       | $820.00   | Credit Card   |
-        |   Drive Medical Ultra Light Full-Electric Bed          | 1       | $820.00   | Paypal        |
-        |   Drive Medical Ultra Light Full-Electric Bed          | 2       | $1,640.00 | Credit Card   |
-        |   Drive Medical Ultra Light Full-Electric Bed          | 2       | $1,640.00 | Paypal        |
-    # |   Drive Medical Ultra Light Full-Electric Bed          | 3       | $2,460.00 | BreadPay      |
-        |   Drive Medical Ultra Light Full-Electric Bed          | 3       | $2,460.00 | Paypal        |
-
-    |   Drive Medical Deluxe Hydraulic Lift          | 1       | $650.00 | Credit Card   |
-    |   Drive Medical Deluxe Hydraulic Lift          | 1       | $650.00 | Paypal        |
-    |   Drive Medical Deluxe Hydraulic Lift          | 2       | $1,300.00 | Credit Card   |        
-    |   Drive Medical Deluxe Hydraulic Lift          | 2       | $1,300.00 | Paypal        |
-    # |   Drive Medical Deluxe Hydraulic Lift          | 3       | $1,950.00 | BreadPay      |
-    |   Drive Medical Deluxe Hydraulic Lift          | 3       | $1,950.00 | Paypal        |
