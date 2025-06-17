@@ -5,12 +5,12 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.3.4</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.14.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\deepa.oberoi\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\aniket.bhagat\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.props')" />
@@ -29,10 +29,10 @@
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\3.1.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\3.1.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\xunit.analyzers\1.18.0</Pkgxunit_analyzers>
-    <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\bodi\1.4.1</PkgBoDi>
-    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
-    <PkgMicrosoft_Net_Compilers Condition=" '$(PkgMicrosoft_Net_Compilers)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\microsoft.net.compilers\4.2.0</PkgMicrosoft_Net_Compilers>
-    <PkgFluentAssertions Condition=" '$(PkgFluentAssertions)' == '' ">C:\Users\deepa.oberoi\.nuget\packages\fluentassertions\8.0.1</PkgFluentAssertions>
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\xunit.analyzers\1.18.0</Pkgxunit_analyzers>
+    <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\bodi\1.4.1</PkgBoDi>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_Net_Compilers Condition=" '$(PkgMicrosoft_Net_Compilers)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\microsoft.net.compilers\4.2.0</PkgMicrosoft_Net_Compilers>
+    <PkgFluentAssertions Condition=" '$(PkgFluentAssertions)' == '' ">C:\Users\aniket.bhagat\.nuget\packages\fluentassertions\8.0.1</PkgFluentAssertions>
   </PropertyGroup>
 </Project>
