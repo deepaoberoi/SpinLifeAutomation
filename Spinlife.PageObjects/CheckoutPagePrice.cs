@@ -234,28 +234,35 @@ namespace Spinlife.PageObjects
 
         public void FillPaypalDetails()
         {
-            Actions actions = new Actions(_driver);
-            actions.MoveToElement(rdButtonPaypal).Perform();
-            rdButtonPaypal.Click();
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
-            chkBoxReturnPolicy.Click();
+            // Actions actions = new Actions(_driver);
+            // actions.MoveToElement(rdButtonPaypal).Perform();
+            // rdButtonPaypal.Click();
+            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
+            // chkBoxReturnPolicy.Click();
             // Wait until the iframe is present
+            // Scroll into view and click using JavaScript
+                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", rdButtonPaypal);
+                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
+
+              ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", chkBoxReturnPolicy);
+                Thread.Sleep(500);
+                chkBoxReturnPolicy.Click();
         try
-        {
-            IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
-            _driver.SwitchTo().Frame(iframe);
-            btnPaypal.Click();
-            Thread.Sleep(2000);
-            _driver.SwitchTo().DefaultContent();
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => _driver.WindowHandles.Count > 1);
-            _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error during PayPal window switch: " + ex.Message);
-            throw;
-        }
+            {
+                IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
+                _driver.SwitchTo().Frame(iframe);
+                btnPaypal.Click();
+                Thread.Sleep(2000);
+                _driver.SwitchTo().DefaultContent();
+                WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+                wait.Until(d => _driver.WindowHandles.Count > 1);
+                _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error during PayPal window switch: " + ex.Message);
+                throw;
+            }
 
             // IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
             // _driver.SwitchTo().Frame(iframe);
