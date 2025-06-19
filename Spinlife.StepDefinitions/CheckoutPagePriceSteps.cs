@@ -147,6 +147,10 @@ namespace Spinlife.StepDefinitions
 			{
 				_page.FillBreadPayDetails();
 			}
+			else if (paymentOption.Equals("Check or Money Order", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.CheckOrMoneyOrder();
+			}
 			else
 			{
 				throw new NotImplementedException($"Payment option '{paymentOption}' is not implemented.");
@@ -170,4 +174,4 @@ namespace Spinlife.StepDefinitions
 		}
 
 	}
-}
+} 

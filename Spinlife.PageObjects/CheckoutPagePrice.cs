@@ -234,21 +234,36 @@ namespace Spinlife.PageObjects
 
         public void FillPaypalDetails()
         {
-            Thread.Sleep(1000);
             Actions actions = new Actions(_driver);
             actions.MoveToElement(rdButtonPaypal).Perform();
             rdButtonPaypal.Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
             // Wait until the iframe is present
-
+        try
+        {
             IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
             _driver.SwitchTo().Frame(iframe);
             btnPaypal.Click();
+            Thread.Sleep(2000);
             _driver.SwitchTo().DefaultContent();
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             wait.Until(d => _driver.WindowHandles.Count > 1);
             _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error during PayPal window switch: " + ex.Message);
+            throw;
+        }
+
+            // IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
+            // _driver.SwitchTo().Frame(iframe);
+            // btnPaypal.Click();
+            // _driver.SwitchTo().DefaultContent();
+            // WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            // wait.Until(d => _driver.WindowHandles.Count > 1);
+            // _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
             textboxPaypalEmail.SendKeys("deepa.oberoi@spinlife.com");
             btnNext.Click();
             textboxPaypalPassword.SendKeys("ItIsFoggyInIndia");
@@ -256,6 +271,16 @@ namespace Spinlife.PageObjects
             Extensions.WaitForVisible(btnPaypalCompletePurchase, 10000);
             btnPaypalCompletePurchase.Click();
             _driver.SwitchTo().Window(_driver.WindowHandles[0]);
+        }
+        public void CheckOrMoneyOrder()
+        {
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(rdoCheckOrMoneyOrder).Perform();
+            rdoCheckOrMoneyOrder.Click();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
+            chkBoxReturnPolicy.Click();
+            btnPlaceOrder.Click();
+            Thread.Sleep(2000);
         }
 
         public void FillBreadPayDetails()
@@ -522,5 +547,6 @@ namespace Spinlife.PageObjects
 
         private IWebElement dropdownViperLegrests => _driver.FindElement(By.XPath("//div[@id='s_X256']"));
         private IWebElement dropdownViperLegrestsValue => _driver.FindElement(By.XPath("//div[@id='i_X108729']"));
+        private IWebElement rdoCheckOrMoneyOrder => _driver.FindElement(By.XPath("//span[text()='Mail a Check or Money Order']"));
     }
 }
