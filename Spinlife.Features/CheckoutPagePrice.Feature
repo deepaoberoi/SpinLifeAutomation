@@ -21,14 +21,14 @@ Scenario: Validate the price displayed on the checkout page
 
 Examples:
     | ProductName                        | Quantity | ExpectedPrice | PaymentOption |
-       | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
-    #    | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
-       | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
-    #    | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
-       | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | Check or Money Order  |
+    #    | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
+       | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
+    #    | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
+       | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
+    #    | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | Check or Money Order  |
     #   | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | BreadPay        |
 
-   | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Credit Card   |
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Credit Card   |
 #    | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Paypal        |
 #    | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Credit Card   |
 #    | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Paypal        |

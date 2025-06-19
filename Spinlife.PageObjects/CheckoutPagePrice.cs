@@ -515,7 +515,7 @@ namespace Spinlife.PageObjects
         private IWebElement textboxBetteEmail => _driver.FindElement(By.XPath("//*[@id='Username']"));
         private IWebElement textboxBettePassword => _driver.FindElement(By.XPath("//*[@id='Password']"));
         private IWebElement btnBetteLogin => _driver.FindElement(By.XPath("//*[@id='loginButton']"));
-        private IWebElement textboxPaypalEmail => _driver.FindElement(By.XPath("//*[@id='email']"));
+        private IWebElement textboxPaypalEmail => _driver.FindElement(By.XPath("//input[@name='login_email']"));
         private IWebElement btnNext => _driver.FindElement(By.XPath("//*[@id='btnNext']"));
         private IWebElement textboxPaypalPassword => _driver.FindElement(By.XPath("//*[@id='password']"));
         private IWebElement btnLogin => _driver.FindElement(By.XPath("//*[@id='btnLogin']"));
