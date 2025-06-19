@@ -234,29 +234,36 @@ namespace Spinlife.PageObjects
 
         public void FillPaypalDetails()
         {
-            // Actions actions = new Actions(_driver);
-            // actions.MoveToElement(rdButtonPaypal).Perform();
-            // rdButtonPaypal.Click();
-            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
-            // chkBoxReturnPolicy.Click();
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(rdButtonPaypal).Perform();
+            rdButtonPaypal.Click();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
+            chkBoxReturnPolicy.Click();
             // Wait until the iframe is present
             // Scroll into view and click using JavaScript
-                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", rdButtonPaypal);
-                ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
-
-              ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", chkBoxReturnPolicy);
-                Thread.Sleep(500);
-                chkBoxReturnPolicy.Click();
-        try
+            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", rdButtonPaypal);
+            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
+            try
             {
                 IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
                 _driver.SwitchTo().Frame(iframe);
                 btnPaypal.Click();
                 Thread.Sleep(2000);
-                _driver.SwitchTo().DefaultContent();
-                WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-                wait.Until(d => _driver.WindowHandles.Count > 1);
-                _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+                // _driver.SwitchTo().DefaultContent();
+                // WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+                // wait.Until(d => _driver.WindowHandles.Count > 1);
+                // _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+                  var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+                string originalWindow = _driver.CurrentWindowHandle;
+                wait.Until(d => d.WindowHandles.Count > 1);
+                foreach (var handle in _driver.WindowHandles)
+                {
+                    if (handle != originalWindow)
+                    {
+                        _driver.SwitchTo().Window(handle);
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -490,6 +497,7 @@ namespace Spinlife.PageObjects
         private IWebElement chkBoxSameAsShipping => _driver.FindElement(By.XPath("//*[@id='ship_bill']"));
         private IWebElement rdButtonCC => _driver.FindElement(By.CssSelector("label[for='payment_type1']"));
         private IWebElement rdButtonPaypal => _driver.FindElement(By.CssSelector("label[for='payment_type2']"));
+        private IWebElement payTomorrow => _driver.FindElement(By.XPath("//label[@for='payment_type35']"));
         private IWebElement rdButtonChequeOrMoneyOrder => _driver.FindElement(By.CssSelector("label[for='payment_type6']"));
         private IWebElement rdButtonBreadPay => _driver.FindElement(By.CssSelector("label[for='payment_type10']"));
         private IWebElement textBoxCreditCardNo => _driver.FindElement(By.XPath("//*[@id='credit-card-number']"));

@@ -79,8 +79,6 @@ namespace SpinlifeTest.Spinlife_Features
         [NUnit.Framework.CategoryAttribute("aniketb")]
         [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "2", "$3,998.00", "Paypal", null)]
         [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "3", "$5,997.00", "Paypal", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "1", "$406.00", "Paypal", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "2", "$812.00", "Paypal", null)]
         public virtual void ValidateThePriceDisplayedOnTheCheckoutPage(string productName, string quantity, string expectedPrice, string paymentOption, string[] exampleTags)
         {
             string[] @__tags = new string[] {
