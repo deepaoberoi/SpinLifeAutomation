@@ -24,7 +24,7 @@ Examples:
     #    | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
        | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
     #    | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
-       | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
+    #    | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
     #    | SpinLife Classic PR-458 3-Position | 4        | $2,097.00     | Check or Money Order  |
     #    | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | BreadPay        |
 
