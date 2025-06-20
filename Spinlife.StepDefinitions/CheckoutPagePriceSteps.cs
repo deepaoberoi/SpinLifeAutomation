@@ -151,10 +151,6 @@ namespace Spinlife.StepDefinitions
 			{
 				_page.CheckOrMoneyOrder();
 			}
-			else if (paymentOption.Equals("Check or Money Order", StringComparison.OrdinalIgnoreCase))
-			{
-				_page.CheckOrMoneyOrder();
-			}
 			else
 			{
 				throw new NotImplementedException($"Payment option '{paymentOption}' is not implemented.");

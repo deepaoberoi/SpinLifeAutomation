@@ -236,48 +236,20 @@ namespace Spinlife.PageObjects
         {
             Actions actions = new Actions(_driver);
             actions.MoveToElement(rdButtonPaypal).Perform();
-            rdButtonPaypal.Click();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(rdButtonPaypal));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
+            Thread.Sleep(2000);
+            actions.MoveToElement(chkBoxReturnPolicy).Perform();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
-            // Wait until the iframe is present
-            // Scroll into view and click using JavaScript
-            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView({ block: 'center' });", rdButtonPaypal);
-            // ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
-            try
-            {
-                IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
-                _driver.SwitchTo().Frame(iframe);
-                btnPaypal.Click();
-                Thread.Sleep(2000);
-                // _driver.SwitchTo().DefaultContent();
-                // WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-                // wait.Until(d => _driver.WindowHandles.Count > 1);
-                // _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
-                  var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-                string originalWindow = _driver.CurrentWindowHandle;
-                wait.Until(d => d.WindowHandles.Count > 1);
-                foreach (var handle in _driver.WindowHandles)
-                {
-                    if (handle != originalWindow)
-                    {
-                        _driver.SwitchTo().Window(handle);
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error during PayPal window switch: " + ex.Message);
-                throw;
-            }
-
-            // IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
-            // _driver.SwitchTo().Frame(iframe);
-            // btnPaypal.Click();
-            // _driver.SwitchTo().DefaultContent();
-            // WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            // wait.Until(d => _driver.WindowHandles.Count > 1);
-            // _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+            IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
+            _driver.SwitchTo().Frame(iframe);
+            btnPaypal.Click();
+            _driver.SwitchTo().DefaultContent();
+            wait.Until(d => _driver.WindowHandles.Count > 1);
+            _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
             textboxPaypalEmail.SendKeys("deepa.oberoi@spinlife.com");
             btnNext.Click();
             textboxPaypalPassword.SendKeys("ItIsFoggyInIndia");
@@ -314,7 +286,7 @@ namespace Spinlife.PageObjects
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", btnAcceptCookies);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", btnGetStarted);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", btnGetStarted);
-            textBoxBreadPayEmail.SendKeys("deepa.oberoi@centricconsulting.com");
+            textBoxBreadPayEmail.SendKeys("aniket.bhagat@centricconsulting.com");
             btnBreadyPayContinue.Click();
             textBoxBreadPayPhone.SendKeys(Faker.Phone.Number());
             btnBreadyPaySubmit.Click();
@@ -509,7 +481,7 @@ namespace Spinlife.PageObjects
         private IWebElement textBoxCVV => _driver.FindElement(By.XPath("//*[@id='cvv']"));
         private IWebElement chkBoxReturnPolicy => _driver.FindElement(By.Id("feReturnPolicy"));
         private IWebElement btnPlaceOrder => _driver.FindElement(By.XPath("//*[@id='submit-button']"));
-        private IWebElement btnPaypal => _driver.FindElement(By.XPath("//div[@role='link' and @data-funding-source='paypal']"));
+        private IWebElement btnPaypal => _driver.FindElement(By.XPath("//div[@class='paypal-button-label-container']"));
         private IWebElement labelOrderConfirmation => _driver.FindElement(By.XPath("(//h1[contains(text(), 'Thank you')])"));
         private IWebElement labelOrderConfirmationPopUp => _driver.FindElement(By.XPath("(//p[@class='title' and text()='THANK YOU FOR YOUR PURCHASE!']])"));
         private IWebElement textboxBetteEmail => _driver.FindElement(By.XPath("//*[@id='Username']"));
