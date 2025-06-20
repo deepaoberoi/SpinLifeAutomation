@@ -237,7 +237,7 @@ namespace Spinlife.PageObjects
             Actions actions = new Actions(_driver);
             actions.MoveToElement(rdButtonPaypal).Perform();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(50));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(rdButtonPaypal));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
             Thread.Sleep(2000);

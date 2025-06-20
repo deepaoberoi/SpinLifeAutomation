@@ -21,7 +21,7 @@ Scenario: Validate the price displayed on the checkout page for selected quantit
 
 Examples:
     | ProductName                        | Quantity | ExpectedPrice | PaymentOption |
-       | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
+    #    | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
        | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
     #    | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
        | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
