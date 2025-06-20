@@ -77,8 +77,8 @@ namespace SpinlifeTest.Spinlife_Features
         [NUnit.Framework.DescriptionAttribute("Validate the price displayed on the checkout page for selected quantity")]
         [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.CategoryAttribute("aniketb")]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "4", "$2,097.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "3", "$2,097.00", "BreadPay", null)]
+        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "1", "$699.00", "Credit Card", null)]
+        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "1", "$699.00", "Paypal", null)]
         public virtual void ValidateThePriceDisplayedOnTheCheckoutPageForSelectedQuantity(string productName, string quantity, string expectedPrice, string paymentOption, string[] exampleTags)
         {
             string[] @__tags = new string[] {
