@@ -236,24 +236,25 @@ namespace Spinlife.PageObjects
         {
             Actions actions = new Actions(_driver);
             actions.MoveToElement(rdButtonPaypal).Perform();
-            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(50));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(rdButtonPaypal));
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", rdButtonPaypal);
+            Console.WriteLine("Clicking on PayPal radio button");
             Thread.Sleep(2000);
             actions.MoveToElement(chkBoxReturnPolicy).Perform();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
+              Console.WriteLine("Scrolling to PayPal checkbox");
             IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
             _driver.SwitchTo().Frame(iframe);
             btnPaypal.Click();
+             Console.WriteLine("Switching to PayPal iframe");
             _driver.SwitchTo().DefaultContent();
             wait.Until(d => _driver.WindowHandles.Count > 1);
             _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
             Console.WriteLine(_driver.WindowHandles.Count);
             textboxPaypalEmail.SendKeys("deepa.oberoi@spinlife.com");
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(rdButtonPaypal));
-
             btnNext.Click();
             textboxPaypalPassword.SendKeys("ItIsFoggyInIndia");
             btnLogin.Click();
