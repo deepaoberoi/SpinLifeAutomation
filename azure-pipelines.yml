@@ -44,6 +44,6 @@ jobs:
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Test Screenshots'
         inputs:
-          PathtoPublish: '$(Build.SourcesDirectory)/TestResults'
+          PathtoPublish: '$(Build.SourcesDirectory)/**/TestResults'
           ArtifactName: 'TestScreenshots'
           publishLocation: 'Container'

@@ -53,7 +53,7 @@ namespace Spinlife.Support
 				var stepText = scenarioContext.ContainsKey("LastStepText") ? scenarioContext["LastStepText"].ToString() : "UnknownStep";
 				var safeStep = string.Concat(stepText.Split(Path.GetInvalidFileNameChars()));
 				var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmssfff");
-				var screenshotsDir = Path.Combine("..", "..", "TestResults");
+				var screenshotsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestResults");
 				Directory.CreateDirectory(screenshotsDir);
 				var screenshotPath = Path.Combine(screenshotsDir, $"{safeStep}_{timestamp}.png");
 				_driver.TakeScreenshot().SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
