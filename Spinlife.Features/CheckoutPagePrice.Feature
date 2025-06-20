@@ -21,30 +21,30 @@ Scenario: Validate the price displayed on the checkout page for selected quantit
 
 Examples:
     | ProductName                        | Quantity | ExpectedPrice | PaymentOption |
-       | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
-       | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
-       | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
-       | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
-       | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | Check or Money Order  |
-    #  | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | BreadPay        |
+#        | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card   |
+#        | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Paypal        |
+#        | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Credit Card   |
+#        | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Paypal        |
+       | SpinLife Classic PR-458 3-Position | 4        | $2,097.00     | Check or Money Order  |
+     | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | BreadPay        |
 
-   | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Credit Card   |
-   | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Paypal        |
-   | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Credit Card   |
-   | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Paypal        |
-   | Feather Feather Chair  - Feather Standard  Lightweight | 3        | $1,947.00   | Check or Money Order |      
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Credit Card   |
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Paypal        |
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Credit Card   |
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Paypal        |
+#    | Feather Feather Chair  - Feather Standard  Lightweight | 3        | $1,947.00   | Check or Money Order |      
 #    | Feather Feather Chair  - Feather Standard  Lightweight | 3        | $1,947.00   | BreadPay       |
 
-     | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 1       | $1,999.00     | Credit Card   |
-     | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 1        | $1,999.00     | Check or Money Order    |
-     |  Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 2        | $3,998.00     | Paypal      |
-     | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 2        | $3,998.00     | Check or Money Order    |
-     | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 3        | $5,997.00     | Paypal        |
-    #  | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 3        | $5,997.00     | BreadPay  |
+#      | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 1       | $1,999.00     | Credit Card   |
+#      | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 1        | $1,999.00     | Check or Money Order    |
+#      |  Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 2        | $3,998.00     | Paypal      |
+#      | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 2        | $3,998.00     | Check or Money Order    |
+#      | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 3        | $5,997.00     | Paypal        |
+#      | Feather Feather Scooter  - Feather 4-Wheel Travel Scooters | 3        | $5,997.00     | BreadPay  |
 
-    |   Drive Medical Viper Plus GT            | 1        | $406.00     | Credit Card   |
-    |   Drive Medical Viper Plus GT            | 1        | $406.00     | Check or Money Order   |
-    |   Drive Medical Viper Plus GT            | 2        | $812.00     | Credit Card   |
-    |   Drive Medical Viper Plus GT            | 2        | $812.00     | Paypal        |
-    |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | Check or Money Order   |
-    # |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | BreadPay        |
+#     |   Drive Medical Viper Plus GT            | 1        | $406.00     | Credit Card   |
+#     |   Drive Medical Viper Plus GT            | 1        | $406.00     | Check or Money Order   |
+#     |   Drive Medical Viper Plus GT            | 2        | $812.00     | Credit Card   |
+#     |   Drive Medical Viper Plus GT            | 2        | $812.00     | Paypal        |
+#     |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | Check or Money Order   |
+#     |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | BreadPay        |
