@@ -254,7 +254,7 @@ namespace Spinlife.PageObjects
             _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
             Console.WriteLine(_driver.WindowHandles.Count);
             textboxPaypalEmail.SendKeys("deepa.oberoi@spinlife.com");
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(rdButtonPaypal));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(btnNext));
             btnNext.Click();
             textboxPaypalPassword.SendKeys("ItIsFoggyInIndia");
             btnLogin.Click();
