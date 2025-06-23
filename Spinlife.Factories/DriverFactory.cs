@@ -16,6 +16,8 @@ namespace Spinlife.Factories
                 case "CHROME":
                     var options = new ChromeOptions();
                     options.AddArguments("--incognito");
+                    options.AddArgument("--disable-popup-blocking");
+                    options.AddArgument("--window-size=1920,1080");
                     return new ChromeDriver(options);
                 case "FIREFOX":
                     return new FirefoxDriver();

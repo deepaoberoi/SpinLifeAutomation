@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {}
+    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Project updates\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {}
   },
   "projects": {
-    "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {
+    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Project updates\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+        "projectUniqueName": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Project updates\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
         "projectName": "SpinlifeTest",
-        "projectPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
-        "packagesPath": "C:\\Users\\deepa.oberoi\\.nuget\\packages\\",
-        "outputPath": "C:\\wip\\NewSpinlifeTest\\SpinLifeTest\\obj\\",
+        "projectPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Project updates\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+        "packagesPath": "C:\\Users\\aniket.bhagat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Project updates\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\deepa.oberoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\aniket.bhagat\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -124,7 +130,7 @@
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[132.0.6834.8300, )"
+              "version": "[136.0.7103.114, )"
             },
             "Selenium.WebDriver.MicrosoftDriver": {
               "target": "Package",
@@ -167,7 +173,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.428\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
