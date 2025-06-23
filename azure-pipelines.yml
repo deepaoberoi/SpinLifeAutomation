@@ -41,9 +41,9 @@ jobs:
           command: test
           arguments: '$(Build.SourcesDirectory)/SpinlifeTest.sln --configuration $(buildConfiguration)'
         
-      - task: PublishBuildArtifacts@1
-        displayName: 'Publish Test Screenshots'
-        inputs:
-          PathtoPublish: '$(Build.SourcesDirectory)/TestResults'
-          ArtifactName: 'TestScreenshots'
-          publishLocation: 'Container'
+      # - task: PublishBuildArtifacts@1
+      #   displayName: 'Publish Test Screenshots'
+      #   inputs:
+      #     PathtoPublish: '$(Build.SourcesDirectory)/TestResults'
+      #     ArtifactName: 'TestScreenshots'
+      #     publishLocation: 'Container'
