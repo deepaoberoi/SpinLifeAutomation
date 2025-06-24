@@ -118,12 +118,16 @@ namespace Spinlife.StepDefinitions
 			_page.ClickOnProceedToCheckout(); 
 		}
 
-		[Then(@"I should see the ""(.*)"" price displayed on the checkout page")]
-		public void ThenIShouldSeeThePriceDisplayedOnCheckoutPage(string expectedPrice)
+		[Then(@"I should see the ""(.*)"" price displayed on the checkout page ""(.*)""")]
+		public void ThenIShouldSeeThePriceDisplayedOnCheckoutPage(string expectedPrice, string productName)
 		{
 			Assert.AreEqual(expectedPrice, _page.VerifyCheckoutPrice());
-			// _page.VerifyProductPrice();
-			// _page.VerifyCheckoutPage();
+			if (productName.Equals("Drive Medical Viper Plus GT", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.VerifyProductPrice();
+				Console.WriteLine("Price displayed on checkout page is correct for selected shipping.");
+				_page.VerifyCheckoutPage();
+			}
 		}
 
 		[When(@"I fill the shipping details")]

@@ -181,6 +181,7 @@ namespace Spinlife.PageObjects
             }
             Assert.IsTrue(emailForOffersCheckbox.Displayed, "Email for offers checkbox is not displayed on the checkout page.");
             Assert.IsTrue(returnPolicyLink.Displayed, "Return policy link is not displayed on the checkout page.");
+            Console.WriteLine("Email contact info, Email for offers checkbox and return policy link are displayed on the checkout page.");
         }
 
         public void VerifyProductPrice()
@@ -191,17 +192,30 @@ namespace Spinlife.PageObjects
             for (int i = 1; i <= 3; i++)
             {
                 select.SelectByValue(i.ToString());
+                Console.WriteLine($"Selected shipping method: {select.SelectedOption.Text}");
+                Thread.Sleep(2000); // Wait for the price to update
                 IWebElement subtotal = _driver.FindElement(By.XPath("//span[@id='cartTotal']"));
                 IWebElement shipping = _driver.FindElement(By.XPath("//span[@id='shippingTotal']"));
                 IWebElement grandTotal = _driver.FindElement(By.XPath("//span[@id='grandTotal']"));
+               
                 string subtotalPrice = subtotal.Text.Trim();
                 string shippingPrice = shipping.Text.Trim();
                 string grandTotalPrice = grandTotal.Text.Trim();
-                subtotalPrice = Regex.Replace(subtotalPrice, @"\s+", " "); // Normalize whitespace
-                shippingPrice = Regex.Replace(shippingPrice, @"\s+", " "); // Normalize whitespace
-                grandTotalPrice = Regex.Replace(grandTotalPrice, @"\s+", " "); // Normalize whitespace
-                subtotalPrice = (subtotalPrice + shippingPrice); // Add dollar sign
-                Assert.AreEqual(grandTotalPrice, subtotalPrice, "The product price on the checkout page does not match the expected price.");
+                subtotalPrice = Regex.Replace(subtotalPrice, @"\s+", " ");
+                shippingPrice = Regex.Replace(shippingPrice, @"\s+", " ");
+                grandTotalPrice = Regex.Replace(grandTotalPrice, @"\s+", " ");
+
+                // Parse to decimal and sum
+                decimal subtotalValue = decimal.Parse(subtotalPrice, System.Globalization.NumberStyles.Currency);
+                decimal shippingValue = decimal.Parse(shippingPrice, System.Globalization.NumberStyles.Currency);
+                decimal totalValue = subtotalValue + shippingValue;
+                string totalPrice = totalValue.ToString("N2"); // Format as 2 decimal places
+
+                Console.WriteLine($"Subtotal Price: {subtotalPrice}");
+                Console.WriteLine($"Shipping Price: {shippingPrice}");
+                Console.WriteLine($"Grand Total Price: {grandTotalPrice}");
+                Console.WriteLine($"Total Price: {totalPrice}");
+                Assert.AreEqual(grandTotalPrice, totalPrice, "The product price on the checkout page does not match the expected price.");
             }
         }
 
@@ -219,15 +233,15 @@ namespace Spinlife.PageObjects
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationMonth")));
             dropDownExpiryMonth.SendKeys(DateTime.Now.AddMonths(1).ToString("MM"));
             _driver.SwitchTo().DefaultContent();
-
+            Thread.Sleep(2000);
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationYear")));
             dropDownExpiryYear.SendKeys(DateTime.Now.AddYears(1).ToString("yyyy"));
             _driver.SwitchTo().DefaultContent();
-
+              Thread.Sleep(2000);
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-cvv")));
             textBoxCVV.SendKeys(new Random().Next(100, 999).ToString());
             _driver.SwitchTo().DefaultContent();
-
+              Thread.Sleep(2000);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
         }
@@ -532,7 +546,7 @@ namespace Spinlife.PageObjects
         private IWebElement returnPolicyLink => _driver.FindElement(By.XPath("//a[@alt='View full return on this category.']"));
         private IWebElement updateAddressCheckbox => _driver.FindElement(By.XPath("//input[@id='updateAccountAddress']"));
         private IWebElement emailForOffersCheckbox => _driver.FindElement(By.XPath("//input[@id='email_opt']"));
-        private IWebElement shippingMethodsListbox => _driver.FindElement(By.XPath("//select[@id='shipping_flag_8322808']"));
+        private IWebElement shippingMethodsListbox => _driver.FindElement(By.XPath("//select[@class='shippingOption enabledSelect']"));
         private IWebElement dropdownViper => _driver.FindElement(By.XPath("//div[@id='s_X110']"));
         private IWebElement dropdownViperValue => _driver.FindElement(By.XPath("//div[@id='i_X108726']"));
 

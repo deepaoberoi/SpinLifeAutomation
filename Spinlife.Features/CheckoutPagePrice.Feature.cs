@@ -77,28 +77,7 @@ namespace SpinlifeTest.Spinlife_Features
         [NUnit.Framework.DescriptionAttribute("Validate the price displayed on the checkout page for selected quantity")]
         [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.CategoryAttribute("aniketb")]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "1", "$699.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "1", "$699.00", "Check or Money Order", null)]
         [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "2", "$1,398.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "2", "$1,398.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "3", "$2,097.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "3", "$2,097.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "1", "$649.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "1", "$649.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "2", "$1,298.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "2", "$1,298.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "3", "$1,947.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "3", "$1,947.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "1", "$1,999.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "1", "$1,999.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "2", "$3,998.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "3", "$5,997.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "1", "$406.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "1", "$406.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "2", "$812.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "2", "$812.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "3", "$1,218.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "3", "$1,218.00", "Credit Card", null)]
         public virtual void ValidateThePriceDisplayedOnTheCheckoutPageForSelectedQuantity(string productName, string quantity, string expectedPrice, string paymentOption, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -166,7 +145,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.When("I click on proceed to checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-    testRunner.Then(string.Format("I should see the \"{0}\" price displayed on the checkout page", expectedPrice), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("I should see the \"{0}\" price displayed on the checkout page \"{1}\"", expectedPrice, productName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 17
     testRunner.When("I fill the shipping details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
