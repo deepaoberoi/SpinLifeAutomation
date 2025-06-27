@@ -87,6 +87,62 @@ namespace Spinlife.PageObjects
             Extensions.WaitForVisible(dropDownUpholsteryValue, 5000);
             dropDownUpholsteryValue.Click();
         }
+
+        public bool verifyProductPriceCorrect(string expectedPrice)
+        {
+            IWebElement productPriceElement = _driver.FindElement(By.XPath("//span[@id='cartTotal']"));
+            string actualPrice = productPriceElement.Text.Trim();
+            actualPrice = Regex.Replace(actualPrice, @"\s+", " "); // Normalize whitespace
+            actualPrice = actualPrice.Replace("$", ""); // Remove dollar sign for comparison
+            expectedPrice = expectedPrice.Replace("$", ""); // Remove dollar sign from expected price
+            Assert.AreEqual(expectedPrice, actualPrice, "The product price does not match the expected price.");
+            return expectedPrice == actualPrice;
+        }
+        public void verifyCouponCode(string couponCode)
+        {
+            IWebElement couponCodeElement = _driver.FindElement(By.XPath("//input[@id='couponCode']"));
+            couponCodeElement.SendKeys(couponCode);
+            IWebElement applyButton = _driver.FindElement(By.XPath("//button[@id='applyCoupon']"));
+            applyButton.Click();
+        }
+        public bool verifyDiscountAppliedToCartTotal()
+        {
+            IWebElement discountElement = _driver.FindElement(By.XPath("//span[@id='discountTotal']"));
+            string actualDiscount = discountElement.Text.Trim();
+            actualDiscount = Regex.Replace(actualDiscount, @"\s+", " "); // Normalize whitespace
+            actualDiscount = actualDiscount.Replace("$", ""); // Remove dollar sign for comparison
+            Assert.AreNotEqual("0", actualDiscount, "The discount was not applied to the cart total.");
+            return actualDiscount != "0";
+        }
+
+        public void selectTravelProDropdownValues()
+        {
+            Thread.Sleep(2000);
+            Extensions.WaitForVisible(travelPro3WheelDropdown, 5000);
+            travelPro3WheelDropdown.Click();
+            Extensions.WaitForVisible(travelPro3WheelDropdownValue, 5000);
+            travelPro3WheelDropdownValue.Click();
+        }
+
+        public bool SelectGoGoSportScooter()
+        {
+            return true;
+        }
+        
+        public void selectTransportChairDropdownValues()
+        {
+            Thread.Sleep(2000);
+            Extensions.WaitForVisible(colorDropdownTransportChair, 5000);
+            colorDropdownTransportChair.Click();
+            Extensions.WaitForVisible(colorDropdownTransportChairValue, 5000);
+            colorDropdownTransportChairValue.Click();
+            Thread.Sleep(2000);
+            Extensions.WaitForVisible(legrestDropdownTransportChair, 5000);
+            legrestDropdownTransportChair.Click();
+            Extensions.WaitForVisible(legrestDropdownTransportChairValue, 5000);
+            legrestDropdownTransportChairValue.Click();
+        }
+
         public void SelectDropdownValues()
         {
             Thread.Sleep(2000);
@@ -99,7 +155,6 @@ namespace Spinlife.PageObjects
             dropDownFeatherChairLegrest.Click();
             Extensions.WaitForVisible(dropDownFeatherChairLegrestValue, 5000);
             dropDownFeatherChairLegrestValue.Click();
-
         }
 
         public bool SelectFeatherScooter()
@@ -134,6 +189,10 @@ namespace Spinlife.PageObjects
             var buttonViewCart = _driver.FindElement(By.XPath("//a[contains(text(),'View Cart')]"));
             Extensions.WaitForVisible(buttonViewCart, 5000);
             return buttonViewCart.Displayed;
+        }
+        public bool VerifyProductAddedToCart()
+        {
+           return  cartPageProducts.Displayed;
         }
 
         public void ClickOnViewCart()
@@ -197,7 +256,7 @@ namespace Spinlife.PageObjects
                 IWebElement subtotal = _driver.FindElement(By.XPath("//span[@id='cartTotal']"));
                 IWebElement shipping = _driver.FindElement(By.XPath("//span[@id='shippingTotal']"));
                 IWebElement grandTotal = _driver.FindElement(By.XPath("//span[@id='grandTotal']"));
-               
+
                 string subtotalPrice = subtotal.Text.Trim();
                 string shippingPrice = shipping.Text.Trim();
                 string grandTotalPrice = grandTotal.Text.Trim();
@@ -237,11 +296,11 @@ namespace Spinlife.PageObjects
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-expirationYear")));
             dropDownExpiryYear.SendKeys(DateTime.Now.AddYears(1).ToString("yyyy"));
             _driver.SwitchTo().DefaultContent();
-              Thread.Sleep(2000);
+            Thread.Sleep(2000);
             _driver.SwitchTo().Frame(_driver.FindElement(By.Id("braintree-hosted-field-cvv")));
             textBoxCVV.SendKeys(new Random().Next(100, 999).ToString());
             _driver.SwitchTo().DefaultContent();
-              Thread.Sleep(2000);
+            Thread.Sleep(2000);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
         }
@@ -258,11 +317,11 @@ namespace Spinlife.PageObjects
             actions.MoveToElement(chkBoxReturnPolicy).Perform();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
-              Console.WriteLine("Scrolling to PayPal checkbox");
+            Console.WriteLine("Scrolling to PayPal checkbox");
             IWebElement iframe = _driver.FindElement(By.XPath("//iframe[contains(@name, 'paypal')]"));
             _driver.SwitchTo().Frame(iframe);
             btnPaypal.Click();
-             Console.WriteLine("Switching to PayPal iframe");
+            Console.WriteLine("Switching to PayPal iframe");
             _driver.SwitchTo().DefaultContent();
             wait.Until(d => _driver.WindowHandles.Count > 1);
             _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
@@ -283,8 +342,55 @@ namespace Spinlife.PageObjects
             rdoCheckOrMoneyOrder.Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
             chkBoxReturnPolicy.Click();
+            Thread.Sleep(2000);
             btnPlaceOrder.Click();
             Thread.Sleep(2000);
+        }
+
+        public void SelectPayTomorrow()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+            Extensions.WaitForVisible(emailTextbox, 5000);
+            if (emailTextbox.GetAttribute("value").Length == 0)
+            {
+                emailTextbox.SendKeys(Faker.Internet.Email());
+            }
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(payTomorrow).Perform();
+            payTomorrow.Click();
+            Thread.Sleep(2000);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", chkBoxReturnPolicy);
+            chkBoxReturnPolicy.Click();
+            Thread.Sleep(2000);
+            Extensions.WaitForEnabled(continueCheckoutBtn, 5000);
+            continueCheckoutBtn.Click();
+            Thread.Sleep(5000);
+            wait.Until(d => _driver.WindowHandles.Count > 1);
+            _driver.SwitchTo().Window(_driver.WindowHandles[^1]);
+            Console.WriteLine(_driver.WindowHandles.Count);
+            // btnGetStarted.Click();
+            // wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(btnContinue));
+            // btnContinue.Click();
+            // wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(btnSubmit));
+            // btnSubmit.Click();
+            // otpCodeTextbox.SendKeys("1234");
+            // Thread.Sleep(2000);
+            // // btnContinue.Click();
+            // textboxBreadyPayFirstName.SendKeys(Faker.Name.First());
+            // textboxBreadyPayLastName.SendKeys(Faker.Name.Last());
+            // textboxBreadyPayAddress.SendKeys(Faker.Address.StreetAddress());
+            // zipCode.SendKeys("30301");
+            // btnContinue.Click();
+            Thread.Sleep(3000);
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(cellPhoneTextbox));
+
+            cellPhoneTextbox.Click();
+            cellPhoneTextbox.SendKeys(Faker.Phone.Number());
+            checkbox1.Click();
+            checkbox2.Click();
+            btnContinuePayTomorrow.Click();
+
+
         }
 
         public void FillBreadPayDetails()
@@ -498,6 +604,15 @@ namespace Spinlife.PageObjects
         private IWebElement textBoxCardLastName => _driver.FindElement(By.XPath("//*[@id='card_last_name']"));
         private IWebElement textBoxCVV => _driver.FindElement(By.XPath("//*[@id='cvv']"));
         private IWebElement chkBoxReturnPolicy => _driver.FindElement(By.Id("feReturnPolicy"));
+        private IWebElement continueCheckoutBtn => _driver.FindElement(By.XPath("//span[@id='checkout-button-words']"));
+        // private IWebElement btnGetStarted => _driver.FindElement(By.XPath("//div[text()='Get started']"));
+        private IWebElement checkbox1 => _driver.FindElement(By.XPath("//input[@id='agree-terms']"));
+        private IWebElement checkbox2 => _driver.FindElement(By.XPath("//input[@id='agree-tcpa']"));
+        private IWebElement btnContinuePayTomorrow => _driver.FindElement(By.XPath("//button[text()=' CONTINUE ']"));
+        private IWebElement cellPhoneTextbox => _driver.FindElement(By.XPath("//input[@id='cellPhone']"));
+        private IWebElement otpCodeTextbox => _driver.FindElement(By.XPath("//input[@id='otpCode']"));
+        private IWebElement btnSubmit => _driver.FindElement(By.XPath("//div[text()='Submit']"));
+        private IWebElement btnContinue => _driver.FindElement(By.XPath("//div[text()='Continue']"));
         private IWebElement btnPlaceOrder => _driver.FindElement(By.XPath("//*[@id='submit-button']"));
         private IWebElement btnPaypal => _driver.FindElement(By.XPath("//div[@class='paypal-button-label-container']"));
         private IWebElement labelOrderConfirmation => _driver.FindElement(By.XPath("(//h1[contains(text(), 'Thank you')])"));
@@ -553,5 +668,13 @@ namespace Spinlife.PageObjects
         private IWebElement dropdownViperLegrests => _driver.FindElement(By.XPath("//div[@id='s_X256']"));
         private IWebElement dropdownViperLegrestsValue => _driver.FindElement(By.XPath("//div[@id='i_X108729']"));
         private IWebElement rdoCheckOrMoneyOrder => _driver.FindElement(By.XPath("//span[text()='Mail a Check or Money Order']"));
+        private IWebElement travelPro3WheelDropdown => _driver.FindElement(By.XPath("//div[@id='s_Xxsell3_408']"));
+        private IWebElement travelPro3WheelDropdownValue => _driver.FindElement(By.XPath("//div[@id='xsell3_408_89612']"));
+        private IWebElement colorDropdownTransportChair => _driver.FindElement(By.XPath("//div[@id='s_X245']"));
+        private IWebElement colorDropdownTransportChairValue => _driver.FindElement(By.XPath("//div[@id='i_X228306']"));
+        private IWebElement legrestDropdownTransportChair => _driver.FindElement(By.XPath("//div[@id='s_X1908']"));
+        private IWebElement legrestDropdownTransportChairValue => _driver.FindElement(By.XPath("//div[@id='i_X271164']"));
+        private IWebElement cartPageProducts => _driver.FindElement(By.XPath("//div[@class='item-row']"));
+
     }
 }

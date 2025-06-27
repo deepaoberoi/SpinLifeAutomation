@@ -62,6 +62,18 @@ namespace Spinlife.StepDefinitions
 			{
 				_page.SelectViperScooter();
 			}
+			else if (productName.Equals("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.selectTravelProDropdownValues();
+			}
+			else if (productName.Equals("Drive Medical Heavy Duty Transport Chair", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.selectTransportChairDropdownValues();
+			}
+			else if (productName.Equals("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.SelectGoGoSportScooter();
+			}
 			else
 			{
 				throw new NotImplementedException($"Product '{productName}' is not implemented.");
@@ -91,6 +103,18 @@ namespace Spinlife.StepDefinitions
 				Assert.True(_page.IsProductAddedToCart());
 			}
 			else if (productName.Equals("Drive Medical Viper Plus GT", StringComparison.OrdinalIgnoreCase))
+			{
+				Assert.True(_page.IsProductAddedToCart());
+			}
+			else if (productName.Equals("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", StringComparison.OrdinalIgnoreCase))
+			{
+				Assert.True(_page.IsProductAddedToCart());
+			}
+			else if (productName.Equals("Drive Medical Heavy Duty Transport Chair", StringComparison.OrdinalIgnoreCase))
+			{
+				Assert.True(_page.VerifyProductAddedToCart());
+			}
+			else if (productName.Equals("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", StringComparison.OrdinalIgnoreCase))
 			{
 				Assert.True(_page.IsProductAddedToCart());
 			}
@@ -154,6 +178,10 @@ namespace Spinlife.StepDefinitions
 			else if (paymentOption.Equals("Check or Money Order", StringComparison.OrdinalIgnoreCase))
 			{
 				_page.CheckOrMoneyOrder();
+			}
+			else if (paymentOption.Equals("PayTomorrow", StringComparison.OrdinalIgnoreCase))
+			{
+				_page.SelectPayTomorrow();
 			}
 			else
 			{
