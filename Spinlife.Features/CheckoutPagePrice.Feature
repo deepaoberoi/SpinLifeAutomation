@@ -24,19 +24,19 @@ Examples:
 
        | SpinLife Classic PR-458 3-Position | 1        | $699.00       | Credit Card           |
        | SpinLife Classic PR-458 3-Position | 2        | $1,398.00     | Check or Money Order  |
-    #    | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | Paypal                |
+       | SpinLife Classic PR-458 3-Position | 3        | $2,097.00     | Credit Card                |
     #    | SpinLife Classic PR-458 3-Position | 4        | $2,796.00     | BreadPay              |
     #    | SpinLife Classic PR-458 3-Position | 5        | $3,495.00     | PayTomorrow           |
 
        | Feather Feather Chair  - Feather Standard  Lightweight | 1        | $649.00     | Credit Card            |
        | Feather Feather Chair  - Feather Standard  Lightweight | 2        | $1,298.00   | Check or Money Order   |
-    #    | Feather Feather Chair  - Feather Standard  Lightweight | 3        | $1,947.00   | Paypal                 |
+       | Feather Feather Chair  - Feather Standard  Lightweight | 3        | $1,947.00   | Credit Card                 |
     #    | Feather Feather Chair  - Feather Standard  Lightweight | 4        | $2,596.00   | BreadPay               |
     #    | Feather Feather Chair  - Feather Standard  Lightweight | 5        | $3,245.00   | PayTomorrow            |
 
        |   Drive Medical Viper Plus GT            | 1        | $406.00     | Credit Card   |
        |   Drive Medical Viper Plus GT            | 2        | $812.00     | Check or Money Order   |
-    #     |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | Paypal   |
+       |   Drive Medical Viper Plus GT            | 3        | $1,218.00   | Check or Money Order   |
     #    |   Drive Medical Viper Plus GT            | 4        | $1,624.00   | BreadPay   |
     #    |   Drive Medical Viper Plus GT            | 5        | $2,030.00   | PayTomorrow   |
 
