@@ -53,10 +53,32 @@ namespace Spinlife.Support
 				var stepText = scenarioContext.ContainsKey("LastStepText") ? scenarioContext["LastStepText"].ToString() : "UnknownStep";
 				var safeStep = string.Concat(stepText.Split(Path.GetInvalidFileNameChars()));
 				var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmssfff");
-				 var screenshotsDir = Path.Combine("..", "..", "TestResults");
-		        Directory.CreateDirectory(screenshotsDir);
-        		var screenshotPath = Path.Combine(screenshotsDir, $"{safeStep}_{timestamp}.png");
+				var screenshotsDir = Path.Combine("..", "..", "TestResults");
+				Directory.CreateDirectory(screenshotsDir);
+				var screenshotPath = Path.Combine(screenshotsDir, $"{safeStep}_{timestamp}.png");
 				_driver.TakeScreenshot().SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+				
+				// var screenshot = ((ITakesScreenshot)_driver).TakeScreenshot();
+				// screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+
+				// For full page screenshot (Selenium 4+ only, Chrome/Firefox)
+				// if (_driver is OpenQA.Selenium.Chrome.ChromeDriver chromeDriver)
+				// {
+				// 	var fullScreenshot = chromeDriver.GetFullPageScreenshot();
+				// 	fullScreenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+				// }
+				// else if (_driver is OpenQA.Selenium.Firefox.FirefoxDriver firefoxDriver)
+				// {
+				// 	var fullScreenshot = firefoxDriver.GetFullPageScreenshot();
+				// 	fullScreenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+				// }
+				// else
+				// {
+				// 	// fallback to normal screenshot
+				// 	var screenshot = ((ITakesScreenshot)_driver).TakeScreenshot();
+				// 	screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+				// }
+				// Console.WriteLine($"Screenshot saved at: {screenshotPath}");
 			}
             _driver?.Dispose();
 		}
