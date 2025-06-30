@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpinlifeTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01d46d176ea328cca06799266459918302f0df11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7d95c1af3d90a28b5aa9c7b51157b9c013e6555")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpinlifeTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpinlifeTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

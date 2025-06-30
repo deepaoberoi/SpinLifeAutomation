@@ -36,5 +36,18 @@ namespace Spinlife.StepDefinitions
 		{
 			Assert.True(_page.verifyDiscountAppliedToCartTotal(quantity));
 		}
+
+		[When(@"I remove the product from the cart")]
+		public void WhenIRemoveTheProductFromTheCart()
+		{
+			Assert.True(_page.removeProductFromCart());
+		}
+		
+		[Then(@"I should see the cart is empty")]
+		public void ThenIShouldSeeTheCartIsEmpty()
+		{
+			_page.verifyCartIsEmpty();
+		}
+		
 	}
 }	

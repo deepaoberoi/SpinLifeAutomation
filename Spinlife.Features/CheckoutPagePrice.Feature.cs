@@ -78,15 +78,6 @@ namespace SpinlifeTest.Spinlife_Features
         [NUnit.Framework.CategoryAttribute("uiTest")]
         [NUnit.Framework.CategoryAttribute("aniketb")]
         [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "1", "$699.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "2", "$1,398.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("SpinLife Classic PR-458 3-Position", "3", "$2,097.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "1", "$649.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "2", "$1,298.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Chair  - Feather Standard  Lightweight", "3", "$1,947.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "1", "$406.00", "Credit Card", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "2", "$812.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "3", "$1,218.00", "Check or Money Order", null)]
-        [NUnit.Framework.TestCaseAttribute("Drive Medical Viper Plus GT", "4", "$1,624.00", "Credit Card", null)]
         public virtual void ValidateThePriceDisplayedOnTheCheckoutPageForSelectedQuantity(string productName, string quantity, string expectedPrice, string paymentOption, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -178,19 +169,6 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("aniketb")]
         [NUnit.Framework.TestCaseAttribute("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", "1", "$699.00", null)]
         [NUnit.Framework.TestCaseAttribute("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", "2", "$1,398.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", "3", "$2,097.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", "4", "$2,796.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Travel Pro 3-Wheel  - Pride 3-Wheel Travel Scooters", "5", "$3,495.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", "1", "$1,549.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", "2", "$3,098.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", "3", "$4,647.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", "4", "$6,196.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Pride Go Go Sport 3-Wheel  - Pride 3-Wheel Travel Scooters", "5", "$7,745.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "1", "$1,999.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "2", "$3,998.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "3", "$5,997.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "4", "$7,996.00", null)]
-        [NUnit.Framework.TestCaseAttribute("Feather Feather Scooter  - Feather 4-Wheel Travel Scooters", "5", "$9,995.00", null)]
         public virtual void ValidateTheCartPageFunctionality(string productName, string quantity, string expectedPrice, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -261,6 +239,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 57
  testRunner.Then(string.Format("I should see the discount applied to the cart total for \"{0}\"", quantity), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 58
+    testRunner.When("I remove the product from the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 59
+    testRunner.Then("I should see the cart is empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

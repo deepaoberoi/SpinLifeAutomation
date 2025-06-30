@@ -55,6 +55,8 @@ Scenario: Validate the cart page functionality
 	Then I should see the product price as "<ExpectedPrice>" for "<Quantity>"
 	When I apply the coupon code
 	Then I should see the discount applied to the cart total for "<Quantity>"
+    When I remove the product from the cart
+    Then I should see the cart is empty
 
 Examples:
 

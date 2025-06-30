@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {}
+    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\SpinlifeUIAutomation\\SpinLifeTest\\SpinlifeTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj": {
+    "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\SpinlifeUIAutomation\\SpinLifeTest\\SpinlifeTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+        "projectUniqueName": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\SpinlifeUIAutomation\\SpinLifeTest\\SpinlifeTest.csproj",
         "projectName": "SpinlifeTest",
-        "projectPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\SpinlifeTest.csproj",
+        "projectPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\SpinlifeUIAutomation\\SpinLifeTest\\SpinlifeTest.csproj",
         "packagesPath": "C:\\Users\\aniket.bhagat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\NewSpinlifeTest 1\\NewSpinlifeTest\\SpinLifeTest\\obj\\",
+        "outputPath": "C:\\Users\\aniket.bhagat\\OneDrive - Centric Consulting\\Desktop\\Spinlife_Automation\\SpinlifeUIAutomation\\SpinLifeTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aniket.bhagat\\AppData\\Roaming\\NuGet\\NuGet.Config"
